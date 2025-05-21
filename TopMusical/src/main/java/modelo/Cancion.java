@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -70,7 +71,7 @@ public class Cancion implements Comparable<Cancion> {
     public static ArrayList<Cancion> leerCanciones() {
         ArrayList<Cancion> lista = new ArrayList<>();
 
-        try ( BufferedReader br = new BufferedReader(new FileReader("mejorescanciones.csv"))) {
+        try ( BufferedReader br = new BufferedReader(new FileReader("top10.csv"))) {
             String linea = "";
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(";");
@@ -94,6 +95,7 @@ public class Cancion implements Comparable<Cancion> {
         s = "15,10,7,3,2,1,2,3";
         Cancion c2 = new Cancion("Unholy","Sam Smith & Kim Petras","unholy.jpg",3,2,1,8,new ArrayList<>(Arrays.asList(s.split(","))));
         lista.add(c2);*/
+        Collections.reverse(lista);
         return lista;
     }
 
